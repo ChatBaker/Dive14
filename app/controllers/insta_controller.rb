@@ -28,6 +28,8 @@ class InstaController < ApplicationController
 
     respond_to do |format|
       if @instum.save
+        redirect_to insta_path, notice: "写真を投稿しました！"
+        NoticeMailer.sendmail_insta(@instum).deliver
         format.html { redirect_to @instum, notice: 'Instum was successfully created.' }
         format.json { render :show, status: :created, location: @instum }
       else
