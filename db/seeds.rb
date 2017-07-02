@@ -1,5 +1,5 @@
 5.times do |n|
- email = Faker::Email.email
+  email = Faker::Email.email
   password = "password"
   name = Faker::Name.name
  User.create!(email: email,

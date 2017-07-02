@@ -14,7 +14,6 @@
         <td><%= image_tag instum.image_url(:thumb) %></td><br>
         <td><%= instum.content %></td>
         <div calss="container_footer">
-        <%= link_to '一覧', instum %>
         <%= link_to '編集', edit_instum_path(instum) %>
         <%= link_to '削除', instum, method: :delete, data: { confirm: 'Are you sure?' } %>
        </div>
