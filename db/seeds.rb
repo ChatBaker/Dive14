@@ -12,9 +12,9 @@ end
 n = 1
 while n <= 5
   Blog.create!(
-    image: Rails.root.join("app/aseets/images//akitainu.jpg").open
-    content: "hoge"
-    user_id: n
+    image: Rails.root.join("app/aseets/images//akitainu.jpg").open,
+    content: 'hoge',
+    user_id: n,
   )
   n = n + 1
 end
