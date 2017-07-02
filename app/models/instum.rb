@@ -1,5 +1,5 @@
 class Instum < ApplicationRecord
-
+  belongs_to :user
   mount_uploader :image, ImageUploader
 
   validate :check_image_dimensions

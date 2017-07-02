@@ -25,6 +25,7 @@ class InstaController < ApplicationController
   # POST /insta.json
   def create
     @instum = Instum.new(instum_params)
+    @instum.user_id = current_user.id
 
     respond_to do |format|
       if @instum.valid?
