@@ -50,6 +50,7 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'dotenv-rails'
   gem 'letter_opener_web'
+  gem 'pry-rails'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
@@ -65,3 +66,4 @@ gem 'mini_magick'
 gem 'rails_admin'
 gem 'therubyracer'
 gem 'cancan'
+gem 'simple_form'

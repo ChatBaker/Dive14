@@ -51,8 +51,8 @@ html {
 }
 
 body {
-  text-align: center;
-  font-family: verdana, arial, helvetica, sans-serif;
+    text-align: center;
+    font-family: verdana, arial, helvetica, sans-serif;
     font-size: 13px;
     background-size: cover;
     margin:0;
@@ -60,4 +60,8 @@ body {
 .flash {
   color: white;
   padding-top: 10px;
+}
+
+.file_select{
+  display: inline !important;
 }

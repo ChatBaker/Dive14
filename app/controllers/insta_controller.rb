@@ -27,9 +27,11 @@ class InstaController < ApplicationController
     @instum = Instum.new(instum_params)
 
     respond_to do |format|
-      if @instum.save
-        redirect_to insta_path, notice: "写真を投稿しました！"
-        NoticeMailer.sendmail_insta(@instum).deliver
+      if @instum.valid?
+        @instum.save
+        # binding.pry
+        # redirect_to insta_path, notice: "写真を投稿しました！"
+        # NoticeMailer.sendmail_insta(@instum).deliver
         format.html { redirect_to @instum, notice: 'Instum was successfully created.' }
         format.json { render :show, status: :created, location: @instum }
       else
@@ -71,6 +73,6 @@ class InstaController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def instum_params
-      params.require(:instum).permit(:content)
+      params.require(:instum).permit(:content, :image)
     end
 end

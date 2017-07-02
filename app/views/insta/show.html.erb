@@ -1,9 +1,9 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Content:</strong>
+<div>
+  <%= image_tag @instum.image_url(:thumb) %><br>
   <%= @instum.content %>
-</p>
+</div>
 
-<%= link_to 'Edit', edit_instum_path(@instum) %> |
-<%= link_to 'Back', insta_path %>
+<%= link_to '編集', edit_instum_path(@instum) %> |
+<%= link_to '戻る', insta_path %>
