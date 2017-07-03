@@ -1,21 +1,16 @@
 <div class="insta_backcolor">
 <p id="notice"><%= notice %></p>
-<h1>Insta</h1>
+<h1>Instagram</h1>
 
 <div clss="container" col-md-8 col-md-offset-2 col-sm-10>
-  <div>
-    <tr>
-      <th>Content</th>
-    </tr>
-  </div>
-
   <tbody>
     <% @insta.each do |instum| %>
         <td><%= image_tag instum.image_url(:thumb) %></td><br>
-        <td><%= instum.content %></td>
+        <h4>投稿者：<%= instum.user.name %></h4>
+        <h5><%= instum.content %></h5>
         <div calss="container_footer">
         <%= link_to '編集', edit_instum_path(instum) %>
-        <%= link_to '削除', instum, method: :delete, data: { confirm: 'Are you sure?' } %>
+        <%= link_to '削除', instum, method: :delete, data: { confirm: '本当にいいですか?' } %>
        </div>
     <% end %>
   </tbody>

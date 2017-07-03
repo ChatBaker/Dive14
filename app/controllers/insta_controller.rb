@@ -1,10 +1,11 @@
-class InstaController < ApplicationController
+ class InstaController < ApplicationController
   before_action :set_instum, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
   # GET /insta
   # GET /insta.json
   def index
-    @insta = Instum.all
+    #binding.pry
+    @insta = Instum.all.includes(:user)
   end
 
   # GET /insta/1
@@ -24,8 +25,9 @@ class InstaController < ApplicationController
   # POST /insta
   # POST /insta.json
   def create
-    @instum = Instum.new(instum_params)
-    @instum.user_id = current_user.id
+
+    @instum = current_user.insta.build(instum_params)
+    # @instum.user_id = current_user.id
 
     respond_to do |format|
       if @instum.valid?
@@ -33,7 +35,7 @@ class InstaController < ApplicationController
         # binding.pry
         # redirect_to insta_path, notice: "写真を投稿しました！"
         # NoticeMailer.sendmail_insta(@instum).deliver
-        format.html { redirect_to @instum, notice: 'Instum was successfully created.' }
+        format.html { redirect_to @instum, notice: '投稿が成功しました！' }
         format.json { render :show, status: :created, location: @instum }
       else
         format.html { render :new }
@@ -47,7 +49,7 @@ class InstaController < ApplicationController
   def update
     respond_to do |format|
       if @instum.update(instum_params)
-        format.html { redirect_to @instum, notice: 'Instum was successfully updated.' }
+        format.html { redirect_to @instum, notice: '投稿が更新されました' }
         format.json { render :show, status: :ok, location: @instum }
       else
         format.html { render :edit }
@@ -61,7 +63,7 @@ class InstaController < ApplicationController
   def destroy
     @instum.destroy
     respond_to do |format|
-      format.html { redirect_to insta_url, notice: 'Instum was successfully destroyed.' }
+      format.html { redirect_to insta_url, notice: '投稿が削除されました' }
       format.json { head :no_content }
     end
   end
