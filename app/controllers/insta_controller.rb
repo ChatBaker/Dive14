@@ -28,7 +28,7 @@
 
     @instum = current_user.insta.build(instum_params)
     # @instum.user_id = current_user.id
-
+      binding.pry
     respond_to do |format|
       if @instum.valid?
         @instum.save
